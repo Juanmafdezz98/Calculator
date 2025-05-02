@@ -1,6 +1,10 @@
+#include "functionalities.h"
+#include "numberStructure.h"
+
 #include <iostream>
 #include <vector>
 #include <array>
+#include <utility>
 
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
@@ -10,35 +14,38 @@ enum class Operations {
     SUBSTRACTION,
     MULTIPLICATION,
     DIVISION,
+    SAVE,
+    LOAD,
+    PRINT,
     EXIT = 0,
     UNDEFINED = -1
-};
-
-class OperationNumbers {
-    int value;
-    bool even;
-    int index;
-};
-
-class NumberResult : OperationNumbers {
-    std::array<OperationNumbers, 2> result;
 };
 
 class Calculator {
 public:
 
-    Calculator();
+    Calculator(); 
     ~Calculator();
 
-    void askNumbers();
-    int add(int a, int b);
-    int subtract(int a, int b);
-    int multiply(int a, int b);
-    int divide(int a, int b);
+    std::pair<int, int> askNumbers();
+    int add();
+    int subtract();
+    int multiply();
+    float divide();
+
+    bool isEven(int num);
+
+    void saveNumber(float num);
+    void saveOperation(std::string symbol, int num1, int num2, float result);
+    
+    void printStorage();
+    void saveMatrix();
+    void loadMatrix();
+
 
 private:
-    std::vector<OperationNumbers> operationNum;
-    std::vector<NumberResult> resultNum;
+    std::vector<NumberInfo> storage;
+    Functionalities functionalities;
 
     int num1, num2, result;
 };
