@@ -1,4 +1,3 @@
-#include <iostream>
 #include "calculator.h"
 
 int main() {
@@ -16,6 +15,7 @@ int main() {
     std::cout << "5. Save History" << std::endl;
     std::cout << "6. Load previous History" << std::endl;
     std::cout << "7. Print the History" << std::endl;
+    std::cout << "8. Filtering" << std::endl;
     std::cout << "0. Exit" << std::endl;
     std::cout << "Then, you will type two numbers to apply the choosen operation." << std::endl;
     std::cout << "Clarification: in the divison, the first number will be the dividend and the second number will be the divisor." << std::endl;
@@ -63,6 +63,10 @@ int main() {
                 std::cout << "Exiting the program." << std::endl;
                 mainCalc.printStorage();
                 mainCalc.saveMatrix();
+                break;
+            case static_cast<int>(Operations::FILTER):
+                std::cout << "You selected the Filter functionality." << std::endl;
+                mainCalc.filterFunc();
                 break;
             default:
                 std::cout << "Undefined operation. Please, select a valid operation." << std::endl;

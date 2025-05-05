@@ -1,25 +1,15 @@
 #include "functionalities.h"
-#include "numberStructure.h"
+#include "commondeclarations.h"
 
 #include <iostream>
 #include <vector>
 #include <array>
 #include <utility>
+#include <sstream>
+#include <iomanip> 
 
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
-
-enum class Operations {
-    ADDITION = 1,
-    SUBSTRACTION,
-    MULTIPLICATION,
-    DIVISION,
-    SAVE,
-    LOAD,
-    PRINT,
-    EXIT = 0,
-    UNDEFINED = -1
-};
 
 class Calculator {
 public:
@@ -41,6 +31,7 @@ public:
     void printStorage();
     void saveMatrix();
     void loadMatrix();
+    void filterFunc();
 
 
 private:
